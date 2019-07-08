@@ -21,16 +21,19 @@ class App extends React.Component {
   }
 
   addComment = input => {
-    console.log(input);
     const comments = [...this.state.comments];
     this.setState({ comments: [...comments, input] });
   };
 
+  delComment = item => {
+    const comments = [...this.state.comments];
+    this.setState({ comments: comments.filter(comment => comment !== item) });
+  };
+
   render() {
-    console.log(this.state.comments);
     return (
       <div>
-        <Comments comments={this.state.comments} />
+        <Comments comments={this.state.comments} delComment={this.delComment} />
         <hr />
         <CommentForm addComment={this.addComment} />
       </div>

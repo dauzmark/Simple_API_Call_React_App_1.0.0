@@ -18,11 +18,7 @@ export default class Comments extends React.Component {
     return (
       <ul>
         {comments.map(comment => {
-          return (
-            <li key={1 + Math.random()}>
-              <li>{comment.title}</li>
-            </li>
-          );
+          return <li key={1 + Math.random()}>{comment.title}</li>;
         })}
       </ul>
     );
